@@ -21,4 +21,19 @@ public class ArraysPractice{
 
         return totalWater;
     }
+
+    public static int buyAndSellStocks(int[] prices){
+        int bp=Integer.MAX_VALUE;
+        int maxProfit=0;
+
+        for (int i=0; i<prices.length; i++){
+            int sp = prices[i];//7
+            if (sp > bp){
+                int profit = sp-bp;
+                if (profit > maxProfit) maxProfit = profit;
+            }
+            else bp = sp;
+        }
+        return maxProfit;
+    }
 }
