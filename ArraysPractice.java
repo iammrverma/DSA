@@ -1,4 +1,10 @@
 public class ArraysPractice{
+    public static void print(int[] arr){
+        for (int i=0; i<arr.length; i++){
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println();
+    }
     // TC=O(2*n) => O(n), SC=O(2*n) => O(n)
     public static int trappedRainWater(int[] height){ 
         int n=height.length, totalWater = 0;
