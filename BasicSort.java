@@ -42,6 +42,34 @@ public class BasicSort {
             arr[prev + 1] = curr;
         }
     }
+    /*
+     1 2 2 3 3 4 5
+     1 1 2 2 1 1 0
+     */
+
+    public static void countSort(int[] arr){
+        int n=arr.length, max = Integer.MIN_VALUE;
+
+        for (int val:arr){
+            if (val > max) max = val;
+        }
+
+        int[] temp = new int[max+1];
+
+        for (int i=0; i<n; i++){
+            temp[arr[i]]++;
+        }
+
+        int j=0;
+        for (int i=0; i<n; i++){
+            int count = temp[i];
+            while(count>0){
+                arr[j++] = i;
+                count--;
+            }
+        }
+    }
+
     // TC: O(n*logn)
     public static void inbuiltSort(int[] arr){
         Arrays.sort(arr);
