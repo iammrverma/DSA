@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Collections;
+
 public class BasicSort {
     //TC O(n*n)
     public static void bubbleSort(int[] arr){
@@ -27,7 +30,7 @@ public class BasicSort {
             arr[i] = arr[i]-arr[minAt];
         }
     }
-
+    //TC: O(n*n)
     public static void insertionSort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             int curr = arr[i];
@@ -38,6 +41,19 @@ public class BasicSort {
             }
             arr[prev + 1] = curr;
         }
+    }
+    // TC: O(n*logn)
+    public static void inbuiltSort(int[] arr){
+        Arrays.sort(arr);
+    }
+    public static void inbuiltSort(int[] arr, int si, int ei){
+        Arrays.sort(arr, si, ei);
+    }
+    public static void inbuiltSort(Integer[] arr, boolean reverse){
+        if (reverse) Arrays.sort(arr, Collections.reverseOrder()); 
+    }
+    public  static void inbuiltSort(Integer[] arr, int si, int ei, boolean reverse){
+        if (reverse) Arrays.sort(arr, si, ei, Collections.reverseOrder());
     }
     
 }
