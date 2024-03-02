@@ -17,19 +17,24 @@ public class BasicSort {
     }
 
     //TC O(n*n)
-    public static void selectionSort(int[] arr){
-        int n=arr.length;
-        for (int i=0; i<n-1; i++){
+    public static void selectionSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
             int minAt = i;
-            for (int j=i+1; j<n; j++){
-                if(arr[minAt] > arr[j]) minAt = j;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[minAt] > arr[j]) {
+                    minAt = j;
+                }
             }
-
-            arr[i] = arr[i]+arr[minAt];
-            arr[minAt] = arr[i]-arr[minAt];
-            arr[i] = arr[i]-arr[minAt];
+    
+            // Swap elements without using a temporary variable
+            if (i==minAt) return;
+            arr[i] = arr[i] + arr[minAt];
+            arr[minAt] = arr[i] - arr[minAt];
+            arr[i] = arr[i] - arr[minAt];
         }
     }
+    
     //TC: O(n*n)
     public static void insertionSort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
@@ -46,7 +51,7 @@ public class BasicSort {
      1 2 2 3 3 4 5
      1 1 2 2 1 1 0
      */
-
+    // TC: O(n+k)
     public static void countSort(int[] arr){
         int n=arr.length, max = Integer.MIN_VALUE;
 
