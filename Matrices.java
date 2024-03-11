@@ -7,7 +7,6 @@ public class Matrices {
         
         while (sr<=er && sc<=ec){
             for (int j=sc; j<=ec; j++){
-                // System.out.println("..."+sr+" "+er+" "+sc+" "+ec+"....");
                 System.out.print(matrix[sr][j]+" ");
             }
             for (int i=sr+1; i<=er; i++){
@@ -55,6 +54,5 @@ public class Matrices {
 
         }
         return new int[] {-1, -1};
-        
     }
 }
