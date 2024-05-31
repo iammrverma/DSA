@@ -26,12 +26,11 @@ public class BasicSort {
                     minAt = j;
                 }
             }
-    
-            // Swap elements without using a temporary variable
-            if (i==minAt) return;
-            arr[i] = arr[i] + arr[minAt];
-            arr[minAt] = arr[i] - arr[minAt];
-            arr[i] = arr[i] - arr[minAt];
+            if (i!=minAt) {
+                int temp = arr[i];
+                arr[i] = arr[minAt];
+                arr[minAt] = temp;
+            }
         }
     }
     
@@ -54,17 +53,13 @@ public class BasicSort {
     // TC: O(n+k)
     public static void countSort(int[] arr){
         int n=arr.length, max = Integer.MIN_VALUE;
-
         for (int val:arr){
             if (val > max) max = val;
         }
-
         int[] temp = new int[max+1];
-
         for (int i=0; i<n; i++){
             temp[arr[i]]++;
         }
-
         int j=0;
         for (int i=0; i<n; i++){
             int count = temp[i];
